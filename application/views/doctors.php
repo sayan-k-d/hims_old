@@ -34,129 +34,129 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>backend/dist/css/vendor/css/jquery-ui.bundle.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>backend/dist/css/medical/css/style.css">
     <style>
-        /* Floating Button */
+    /* Floating Button */
+    .chatbot-button {
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 9998;
+        background-image: url('<?php echo base_url(); ?>backend/dist/css/medical/img/hbot.png');
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #17a2b8;
+        transition: background-color 0.3s ease;
+    }
+
+    .chatbot-button:hover {
+        background-color: #cae8ecff;
+    }
+
+    .chatbot-button:focus {
+        background-color: #17a2b8;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* When active, change icon */
+    .chatbot-button.active {
+        background-image: url('<?php echo base_url(); ?>backend/dist/css/medical/img/delete.png');
+        /* Example: close icon */
+    }
+
+    /* Chatbot Popup */
+    .chatbot-iframe-wrapper {
+        position: fixed;
+        bottom: 120px;
+        right: 20px;
+        width: 460px;
+        height: 600px;
+        background: transparent;
+        display: flex;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: transform 1s ease, opacity 1s ease;
+        z-index: 9999;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .chatbot-iframe-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: transparent;
+    }
+
+    .chatbot-iframe-wrapper.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .chatbot-iframe-wrapper::-webkit-scrollbar,
+    .chatbot-iframe-wrapper iframe::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    @media screen and (max-width: 480px) {
         .chatbot-button {
-            position: fixed;
-            bottom: 50px;
-            right: 20px;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            z-index: 9998;
-            background-image: url('<?php echo base_url(); ?>backend/dist/css/medical/img/hbot.png');
-            background-size: 50%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: #17a2b8;
-            transition: background-color 0.3s ease;
+            width: 50px;
+            height: 50px;
         }
 
-        .chatbot-button:hover {
-            background-color: #cae8ecff;
-        }
-
-        .chatbot-button:focus {
-            background-color: #17a2b8;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        /* When active, change icon */
-        .chatbot-button.active {
-            background-image: url('<?php echo base_url(); ?>backend/dist/css/medical/img/delete.png');
-            /* Example: close icon */
-        }
-
-        /* Chatbot Popup */
         .chatbot-iframe-wrapper {
-            position: fixed;
-            bottom: 120px;
-            right: 20px;
-            width: 460px;
-            height: 600px;
-            background: transparent;
-            display: flex;
-            transform: translateY(100%);
-            opacity: 0;
-            transition: transform 1s ease, opacity 1s ease;
-            z-index: 9999;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            overflow: hidden;
-            pointer-events: none;
+            width: 90vw;
         }
+    }
 
-        .chatbot-iframe-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: transparent;
-        }
+    .table {
+        border-radius: 8px;
+        overflow: hidden;
+    }
 
-        .chatbot-iframe-wrapper.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
+    .theme-header {
+        background: #17a2b8;
+        font-size: 16px;
+    }
 
-        .chatbot-iframe-wrapper::-webkit-scrollbar,
-        .chatbot-iframe-wrapper iframe::-webkit-scrollbar {
-            display: none !important;
-        }
+    .table-container {
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+    }
 
-        @media screen and (max-width: 480px) {
-            .chatbot-button {
-                width: 50px;
-                height: 50px;
-            }
+    .table tbody tr:nth-child(odd) {
+        background-color: #f8faff;
+    }
 
-            .chatbot-iframe-wrapper {
-                width: 90vw;
-            }
-        }
+    .table tbody tr:nth-child(even) {
+        background-color: #ffffff;
+    }
 
-        .table {
-            border-radius: 8px;
-            overflow: hidden;
-        }
+    .table tbody tr:hover {
+        background-color: #eaf3ff;
+        transition: 0.2s ease-in-out;
+    }
 
-        .theme-header {
-            background: #17a2b8;
-            font-size: 16px;
-        }
+    .doctor-name {
+        font-weight: 600;
+        color: #0056b3;
+    }
 
-        .table-container {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .table tbody tr:nth-child(odd) {
-            background-color: #f8faff;
-        }
-
-        .table tbody tr:nth-child(even) {
-            background-color: #ffffff;
-        }
-
-        .table tbody tr:hover {
-            background-color: #eaf3ff;
-            transition: 0.2s ease-in-out;
-        }
-
-        .doctor-name {
-            font-weight: 600;
-            color: #0056b3;
-        }
-
-        .table th,
-        .table td {
-            border-color: #dee2e6;
-            padding: 14px;
-        }
+    .table th,
+    .table td {
+        border-color: #dee2e6;
+        padding: 14px;
+    }
     </style>
 </head>
 
@@ -190,8 +190,9 @@
                 <!--Nav Links-->
                 <div class="collapse navbar-collapse">
                     <div class="navbar-nav ml-auto">
-                        <a class="nav-link scroll" href="#home">Home</a>
+                        <a class="nav-link" href="<?php echo site_url()?>">Home</a>
                         <a class="nav-link scroll" href="#whymegaone">Why MegaOne</a>
+                        <a href="<?php echo site_url('site/doctors') ?>" class="nav-link active">Doctors</a>
                         <a class="nav-link scroll" href="#appointment">Appointment</a>
                         <a class="nav-link scroll" href="#pateintgallery">Pateint Gallery</a>
                         <a class="nav-link scroll" href="#ourblogs">Our Blogs</a>
@@ -241,7 +242,7 @@
                 <nav class="side-nav w-100">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link  scroll" href="#home">Home</a>
+                            <a class="nav-link" href="<?php echo site_url('site/homeScreen')?>">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link  scroll" href="#whymegaone">Why MegaOne</a>
@@ -314,7 +315,7 @@
                             </tr>
                             <tr>
                                 <td class="fw-semibold">3</td>
-                                <td class="doctor-name">Dr. Neha Kapoor/td>
+                                <td class="doctor-name">Dr. Neha Kapoor</td>
                                 <td>Dermatologist</td>
                                 <td class="text-muted">Wed 1pm, Fri 11am, Sat 9am</td>
                             </tr>
@@ -465,13 +466,13 @@
 
     <!-- JavaScript -->
     <script>
-        function toggleChatbot() {
-            var chatbot = document.getElementById('chatbotWrapper');
-            var button = document.getElementById('chatbotButton');
+    function toggleChatbot() {
+        var chatbot = document.getElementById('chatbotWrapper');
+        var button = document.getElementById('chatbotButton');
 
-            chatbot.classList.toggle('active');
-            button.classList.toggle('active');
-        }
+        chatbot.classList.toggle('active');
+        button.classList.toggle('active');
+    }
     </script>
     <script src="<?php echo base_url(); ?>backend/dist/css/vendor/js/bundle.min.js"></script>
 
@@ -495,7 +496,7 @@
     </script>
     <script
         src="<?php echo base_url(); ?>backend/dist/css/vendor/js/extensions/revolution.extension.layeranimation.min.js">
-        </script>
+    </script>
     <script src="<?php echo base_url(); ?>backend/dist/css/vendor/js/extensions/revolution.extension.migration.min.js">
     </script>
     <script src="<?php echo base_url(); ?>backend/dist/css/vendor/js/extensions/revolution.extension.navigation.min.js">
