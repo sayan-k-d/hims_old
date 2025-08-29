@@ -37,9 +37,13 @@ class Site extends Public_Controller
         }
     }
 
-      public function doctors()
+    public function doctors()
     {
         $this->load->view('doctors');
+    }
+    public function docAppointments()
+    {
+        $this->load->view('docAppointments');
     }
 
     public function login()

@@ -590,8 +590,12 @@
     <section id="whymegaone" class="bg-light-gray">
         <div class="container">
             <a href="<?php echo site_url('site/doctors') ?>"
-                class="btn btn-rounded btn-large btn-drk-blue fadeInDown-slide animated  text-uppercase">Learn
-                More</a>
+                class="btn btn-rounded btn-large btn-drk-blue fadeInDown-slide animated  text-uppercase">Doctors
+            </a>
+            <a href="<?php echo site_url('site/docAppointments') ?>"
+                class="btn btn-rounded btn-large btn-drk-blue fadeInDown-slide animated  text-uppercase">Appointments
+            
+            </a>
             <div class="row">
                 <div class="container">
                     <div class="main-title style-two d-flex justify-content-md-around align-items-center flex-column flex-md-row text-center text-md-left wow fadeIn"
