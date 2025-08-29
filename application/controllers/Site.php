@@ -37,6 +37,11 @@ class Site extends Public_Controller
         }
     }
 
+      public function doctors()
+    {
+        $this->load->view('doctors');
+    }
+
     public function login()
     {
         if ($this->auth->logged_in()) {

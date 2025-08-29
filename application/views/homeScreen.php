@@ -589,7 +589,7 @@
     <!-- About us-->
     <section id="whymegaone" class="bg-light-gray">
         <div class="container">
-            <a href="/doctors.php"
+            <a href="<?php echo site_url('site/doctors') ?>"
                 class="btn btn-rounded btn-large btn-drk-blue fadeInDown-slide animated  text-uppercase">Learn
                 More</a>
             <div class="row">
