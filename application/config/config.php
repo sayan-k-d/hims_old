@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'https://hospital.confitechone.com/';
-$config['base_url'] = 'http://localhost/hospital/';
+$config['base_url'] = 'http://localhost/hims_old/';
 
 /*
 |--------------------------------------------------------------------------
