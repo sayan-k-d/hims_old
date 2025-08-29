@@ -34,89 +34,89 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>backend/dist/css/vendor/css/jquery-ui.bundle.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>backend/dist/css/medical/css/style.css">
     <style>
-    /* Floating Button */
-    .chatbot-button {
-        position: fixed;
-        bottom: 50px;
-        right: 20px;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        z-index: 9998;
-        background-image: url('<?php echo base_url(); ?>backend/dist/css/medical/img/hbot.png');
-        background-size: 50%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-color: #17a2b8;
-        transition: background-color 0.3s ease;
-    }
-
-    .chatbot-button:hover {
-        background-color: #cae8ecff;
-    }
-
-    .chatbot-button:focus {
-        background-color: #17a2b8;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    /* When active, change icon */
-    .chatbot-button.active {
-        background-image: url('<?php echo base_url(); ?>backend/dist/css/medical/img/delete.png');
-        /* Example: close icon */
-    }
-
-    /* Chatbot Popup */
-    .chatbot-iframe-wrapper {
-        position: fixed;
-        bottom: 120px;
-        right: 20px;
-        width: 460px;
-        height: 600px;
-        background: transparent;
-        display: flex;
-        transform: translateY(100%);
-        opacity: 0;
-        transition: transform 1s ease, opacity 1s ease;
-        z-index: 9999;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        border-radius: 12px;
-        overflow: hidden;
-        pointer-events: none;
-    }
-
-    .chatbot-iframe-wrapper iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        background: transparent;
-    }
-
-    .chatbot-iframe-wrapper.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .chatbot-iframe-wrapper::-webkit-scrollbar,
-    .chatbot-iframe-wrapper iframe::-webkit-scrollbar {
-        display: none !important;
-    }
-
-    @media screen and (max-width: 480px) {
+        /* Floating Button */
         .chatbot-button {
-            width: 50px;
-            height: 50px;
+            position: fixed;
+            bottom: 50px;
+            right: 20px;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 9998;
+            background-image: url('<?php echo base_url(); ?>backend/dist/css/medical/img/hbot.png');
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #17a2b8;
+            transition: background-color 0.3s ease;
         }
 
-        .chatbot-iframe-wrapper {
-            width: 90vw;
+        .chatbot-button:hover {
+            background-color: #cae8ecff;
         }
-    }
+
+        .chatbot-button:focus {
+            background-color: #17a2b8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* When active, change icon */
+        .chatbot-button.active {
+            background-image: url('<?php echo base_url(); ?>backend/dist/css/medical/img/delete.png');
+            /* Example: close icon */
+        }
+
+        /* Chatbot Popup */
+        .chatbot-iframe-wrapper {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            width: 460px;
+            height: 600px;
+            background: transparent;
+            display: flex;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: transform 1s ease, opacity 1s ease;
+            z-index: 9999;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .chatbot-iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: transparent;
+        }
+
+        .chatbot-iframe-wrapper.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .chatbot-iframe-wrapper::-webkit-scrollbar,
+        .chatbot-iframe-wrapper iframe::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        @media screen and (max-width: 480px) {
+            .chatbot-button {
+                width: 50px;
+                height: 50px;
+            }
+
+            .chatbot-iframe-wrapper {
+                width: 90vw;
+            }
+        }
     </style>
 </head>
 
@@ -467,6 +467,9 @@
         <!-- END REVOLUTION SLIDER -->
     </section>
 
+
+
+
     <!--feature-box starts -->
     <section id="join-us" class="features feature-content p-0 pb-60">
 
@@ -582,9 +585,13 @@
     </section>
     <!--feature-box ends -->
 
+
     <!-- About us-->
     <section id="whymegaone" class="bg-light-gray">
         <div class="container">
+            <a href="/doctors.php"
+                class="btn btn-rounded btn-large btn-drk-blue fadeInDown-slide animated  text-uppercase">Learn
+                More</a>
             <div class="row">
                 <div class="container">
                     <div class="main-title style-two d-flex justify-content-md-around align-items-center flex-column flex-md-row text-center text-md-left wow fadeIn"
@@ -1257,13 +1264,13 @@
 
     <!-- JavaScript -->
     <script>
-    function toggleChatbot() {
-        var chatbot = document.getElementById('chatbotWrapper');
-        var button = document.getElementById('chatbotButton');
+        function toggleChatbot() {
+            var chatbot = document.getElementById('chatbotWrapper');
+            var button = document.getElementById('chatbotButton');
 
-        chatbot.classList.toggle('active');
-        button.classList.toggle('active');
-    }
+            chatbot.classList.toggle('active');
+            button.classList.toggle('active');
+        }
     </script>
     <script src="<?php echo base_url(); ?>backend/dist/css/vendor/js/bundle.min.js"></script>
 
@@ -1287,7 +1294,7 @@
     </script>
     <script
         src="<?php echo base_url(); ?>backend/dist/css/vendor/js/extensions/revolution.extension.layeranimation.min.js">
-    </script>
+        </script>
     <script src="<?php echo base_url(); ?>backend/dist/css/vendor/js/extensions/revolution.extension.migration.min.js">
     </script>
     <script src="<?php echo base_url(); ?>backend/dist/css/vendor/js/extensions/revolution.extension.navigation.min.js">
